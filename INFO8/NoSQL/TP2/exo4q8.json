@@ -1,0 +1,10 @@
+{
+	"size": 0,
+	"aggs": {
+		"mean_rating_action_movies": {
+			"avg": {
+				"field": "fields.rating"
+			}
+		}
+	}
+}

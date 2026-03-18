@@ -1,0 +1,13 @@
+{
+	"query": {
+		"bool": {
+			"must": [
+				{ "match_phrase": { "fields.title": "Star Wars" } },
+				{ "query_string": {
+					"fields": [ "fields.directors" ],
+					"query": "George Lucas"
+				} }
+			]
+		}
+	}
+}

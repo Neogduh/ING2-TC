@@ -1,0 +1,9 @@
+{
+  "query": {
+    "range": {
+      "hauteur": {
+        "gte": 40
+      }
+    }
+  }
+}

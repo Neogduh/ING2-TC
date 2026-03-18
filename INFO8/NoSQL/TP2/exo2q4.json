@@ -1,0 +1,13 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "nom commun": "Platane" }},
+        { "match": { "adresse.arrondissement": 12 }}
+      ],
+      "must_not": [
+        { "match": { "nom commun": "commun" }}
+      ]
+    }
+  }
+}

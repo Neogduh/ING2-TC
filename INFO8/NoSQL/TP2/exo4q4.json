@@ -1,0 +1,17 @@
+{
+	"query": {
+		"bool": {
+			"must": {
+				"query_string": {
+					"fields": [ "fields.actors" ],
+					"query": "Harrison Ford"
+				}
+			},
+			"filter": {
+				"match": {
+					"fields.plot": "Jones"
+				}
+			}
+		}
+	}
+}

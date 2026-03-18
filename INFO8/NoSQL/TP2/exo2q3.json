@@ -1,0 +1,18 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "adresse.rue": "avenue"
+          }
+        },
+        {
+          "match": {
+            "adresse.rue": "Matignon"
+          }
+        }
+      ]
+    }
+  }
+}

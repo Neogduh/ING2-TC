@@ -1,0 +1,27 @@
+{
+	"query": {
+		"bool": {
+			"must": [
+				{
+					"query_string": {
+						"fields": [ "fields.directors" ],
+						"query": "James Cameron"
+					}
+				},
+				{
+					"range": {
+						"fields.rating": {
+							"gt": 7
+						}
+					}
+				}
+			],
+			"must_not": {
+				"query_string": {
+					"fields": [ "fields.genres" ],
+					"query": "Fantasy Thriller"
+				}
+			}
+		}
+	}
+}

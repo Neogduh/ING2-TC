@@ -1,0 +1,10 @@
+{
+	"size": 0,
+	"aggs": {
+		"nb_movies_each_year": {
+			"terms": {
+				"field": "fields.year"
+			}
+		}
+	}
+}

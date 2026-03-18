@@ -1,0 +1,19 @@
+{
+	"query": {
+		"bool": {
+			"must": {
+				"query_string": {
+					"fields": [ "fields.directors" ],
+					"query": "James Cameron"
+				}
+			},
+			"filter": {
+				"range": {
+					"fields.rank": {
+						"gt": 1000
+					}
+				}
+			}
+		}
+	}
+}

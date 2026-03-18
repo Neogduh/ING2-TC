@@ -1,0 +1,10 @@
+{
+	"size": 0,
+    "aggs": {
+        "oldest_tree": {
+			"min" : {
+				"field": "annee plantation"
+			}
+		}
+    }
+}

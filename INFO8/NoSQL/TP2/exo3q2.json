@@ -1,0 +1,9 @@
+{
+    "aggs": {
+		"liste_lieux": {
+			"terms": {
+				"field": "adresse.lieu"
+			}
+		}
+    }
+}
