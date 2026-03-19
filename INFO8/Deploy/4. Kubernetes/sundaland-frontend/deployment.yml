@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sundaland-frontend
+  labels:
+    app: sundaland
+    component: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sundaland
+      component: frontend
+  template:
+    metadata:
+      labels:
+        app: sundaland
+        component: frontend
+    spec:
+      imagePullSecrets:
+        - name: sundaland-pull-secret
+      containers:
+        - name: sundaland-frontend
+          image: registry.cri.epita.fr/ing/majeures/tc/info/sundaland/sundaland-frontend:1.1.1
+          ports:
+            - name: http
+              containerPort: 8080

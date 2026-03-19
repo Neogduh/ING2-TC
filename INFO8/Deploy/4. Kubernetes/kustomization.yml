@@ -1,0 +1,11 @@
+---
+
+kind: Kustomization
+namespace: sundaland
+
+resources:
+  - namespace.yml
+  - secrets.yml
+  - mongodb
+  - sundaland-backend
+  - sundaland-frontend

@@ -1,0 +1,54 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sundaland-backend
+  labels:
+    app: sundaland
+    component: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sundaland
+      component: backend
+  template:
+    metadata:
+      labels:
+        app: sundaland
+        component: backend
+    spec:
+      imagePullSecrets:
+        - name: sundaland-pull-secret
+      containers:
+        - name: sundaland-backend
+          image: registry.cri.epita.fr/ing/majeures/tc/info/sundaland/sundaland-backend:1.0.0
+          ports:
+            - name: http
+              containerPort: 8080
+          env:
+            - name: SUNDALAND_MONGODB_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: sundaland-backend-config
+                  key: SUNDALAND_MONGODB_DATABASE
+            - name: SUNDALAND_MONGODB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: sundaland-backend-config
+                  key: SUNDALAND_MONGODB_HOST
+            - name: SUNDALAND_MONGODB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: sundaland-mongodb-credentials
+                  key: SUNDALAND_MONGODB_USER
+            - name: SUNDALAND_MONGODB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sundaland-mongodb-credentials
+                  key: SUNDALAND_MONGODB_PASSWORD
+            - name: SUNDALAND_ADMIN_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: sundaland-admin-token
+                  key: SUNDALAND_ADMIN_TOKEN
